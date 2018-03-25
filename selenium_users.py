@@ -9,14 +9,13 @@ from flask import jsonify
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
-#options = webdriver.ChromeOptions()
-#options.add_argument('headless')
-#options.add_argument('window-size=1200x600')
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
+options.add_argument('window-size=1200x600')
 #url=input("Enter the URL for the Facebook Profile : ")
-email = "larisoncarvalho@gmail.com"
-password="nineth@2017"
-#driver = webdriver.Chrome(chrome_options=options)
-driver = webdriver.Chrome()
+
+driver = webdriver.Chrome(chrome_options=options)
+#driver = webdriver.Chrome()
 def user_view(name):
     # name = request.urlvars['name']
     posts=[]
@@ -74,7 +73,6 @@ def user_view(name):
                 continue
         
         time.sleep(5)
-        print(posts[5])
         driver.close()
         return jsonify(posts)
         
